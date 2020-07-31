@@ -35,6 +35,8 @@ setInterval(function () {
 }, 6000);
 
 
+var gridColor = $(".graphs-grid").css("background-color");
+var ticksColor = $(".graphs-ticks").css("color");
 var speedChartctx = document.getElementById("speedtestChart");
 var speedChart = new Chart(speedChartctx, {
     type: 'line',
@@ -85,7 +87,12 @@ var speedChart = new Chart(speedChartctx, {
                 position: "left",
                 id: "y-axis-1",
                 ticks : {
-                    min: 0
+                    min: 0,
+                    fontColor: ticksColor
+                },
+                gridLines: {
+                    color:gridColor,
+                    zeroLineColor:gridColor
                 }
             },
                 {
@@ -94,8 +101,13 @@ var speedChart = new Chart(speedChartctx, {
                     position: "right",
                     id: "y-axis-2",
                     ticks : {
-                        min: 0
-                    }
+                        min: 0,
+                        fontColor: ticksColor
+                    },
+                    gridLines: {
+                        color:gridColor,
+                        lineWidth:0,
+                    }	
                 }
             ],
             xAxes: [
@@ -109,7 +121,11 @@ var speedChart = new Chart(speedChartctx, {
                         // autoSkip: true,
                         maxTicksLimit: 10,
                         maxRotation: 0,
-                        minRotation: 0
+                        minRotation: 0,
+                        fontColor: ticksColor
+                    },
+                    gridLines: {
+                        color:gridColor
                     }
                 }
             ]
